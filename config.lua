@@ -12,6 +12,8 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
+lvim.transparent_window = true
+vim.opt.relativenumber = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -186,7 +188,28 @@ lvim.plugins = {
   },
   {
     "ggandor/lightspeed.nvim",
-  }
+  },
+  -- fix this
+  {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require('neoscroll').setup({
+        size = 20,
+        open_mapping = [[<c-\>]],
+        hide_numbers = true,
+        shade_filetypes = {},
+        shade_terminals = true,
+        shading_factor = 2,
+        start_in_insert = true,
+        insert_mappings = true,
+        persist_size = true,
+        direction = "horizontal",
+        close_on_exit = true,
+      })
+    end
+  },
+  -- add camelcase extension
+  -- {""}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
